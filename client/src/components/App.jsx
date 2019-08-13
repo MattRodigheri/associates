@@ -30,7 +30,7 @@ class App extends React.Component {
         },
         {
           first: "Eusebius",
-          middle: "Meaghan",
+          //   middle: "Meaghan",
           last: "Addicks",
           years: { unspecified: 1964 }
         },

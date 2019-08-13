@@ -10,6 +10,7 @@ class Search extends React.Component {
       suggestions: []
     };
 
+    this.escapeRegexCharacters = this.escapeRegexCharacters.bind(this);
     this.getSuggestions = this.getSuggestions.bind(this);
     this.getSuggestionValue = this.getSuggestionValue.bind(this);
     this.renderSuggestion = this.renderSuggestion.bind(this);
@@ -22,25 +23,33 @@ class Search extends React.Component {
     );
   }
 
-  // Teach Autosuggest how to calculate suggestions for any given input value.
-  getSuggestions(value) {
-    const inputValue = value.trim().toLowerCase();
-    const inputLength = inputValue.length;
-    return inputLength === 0
-      ? []
-      : this.props.names.filter(
-          name => name.first.toLowerCase().slice(0, inputLength) === inputValue
-        );
+  escapeRegexCharacters(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
 
-  // When suggestion is clicked, Autosuggest needs to populate the input
-  // based on the clicked suggestion.
+  getSuggestions(value) {
+    // const inputValue = value.trim().toLowerCase();
+    // const inputLength = inputValue.length;
+    const escapedValue = this.escapeRegexCharacters(value.trim());
+
+    if (escapedValue === "") {
+      return [];
+    }
+
+    const regex = new RegExp("\\b" + escapedValue, "i");
+
+    return this.props.names.filter(person =>
+      regex.test(this.getSuggestionValue(person))
+    );
+  }
+
   getSuggestionValue(suggestion) {
-    return suggestion.first;
+    //fix 'undefined' if no middle name, etc.
+    return `${suggestion.first} ${suggestion.middle} ${suggestion.last}`;
   }
 
   renderSuggestion(suggestion) {
-    return <div>{suggestion.first}</div>;
+    return <div>{`${suggestion.first} ${suggestion.last}`}</div>;
   }
 
   onChange(event, { newValue }) {
@@ -49,14 +58,12 @@ class Search extends React.Component {
     });
   }
 
-  // Autosuggest will call this function every time you need to update suggestions.
   onSuggestionsFetchRequested({ value }) {
     this.setState({
       suggestions: this.getSuggestions(value)
     });
   }
 
-  // Autosuggest will call this function every time you need to clear suggestions.
   onSuggestionsClearRequested() {
     this.setState({
       suggestions: []
@@ -66,9 +73,8 @@ class Search extends React.Component {
   render() {
     const { value, suggestions } = this.state;
 
-    // Autosuggest will pass through all these props to the input.
     const inputProps = {
-      placeholder: "Type a programming language",
+      placeholder: "Search for a Name",
       value,
       onChange: this.onChange
     };
