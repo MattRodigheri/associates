@@ -1,6 +1,7 @@
 import React from "react";
 import { Tabs, Tab } from "react-bootstrap";
 import sort from "fast-sort";
+import Search from "./Search.jsx";
 
 class App extends React.Component {
   constructor() {
@@ -161,10 +162,6 @@ class App extends React.Component {
       name => name.middle
     ]);
     sortedNames.forEach((name, index) => {
-      // this.state.names.forEach((name, index) => {
-      //   const formattedName = (
-      //     <div key={index}>{`${name.first} ${name.middle} ${name.last}`}</div>
-      //   );
       if (name.last[0] === "A") {
         a.push(name);
       }
@@ -274,9 +271,11 @@ class App extends React.Component {
     });
   }
   //TODO: add years to names
+  //TODO: make name list separate components
   render() {
     return (
       <div>
+        <Search names={this.state.names} />
         <Tabs defaultActiveKey="a-b">
           <Tab eventKey="a-b" title="A-B">
             <div>A</div>
