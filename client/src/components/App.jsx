@@ -128,8 +128,6 @@ class App extends React.Component {
     };
   }
 
-  //TODO: add years to names
-  //TODO: make name list separate components
   render() {
     return (
       <div>
