@@ -9,119 +9,160 @@ class App extends React.Component {
 
     this.state = {
       names: [
-        { first: "Ashwin", middle: "Adwoa", last: "Trevor", years: "MBA '88" },
         {
-          first: "Kacper",
-          middle: "Archippos",
-          last: "Gonzales",
-          years: { unspecified: 1988 }
-        },
-        {
-          first: "Chanda",
-          middle: "Jai",
-          last: "Aldebrandi",
-          years: { unspecified: 1984, MS: 1987 }
-        },
-        {
-          first: "Anshel",
-          middle: "Germund",
-          last: "Ó Riain",
-          years: { unspecified: 1987, MS: 1988, MBA: 1998 }
-        },
-        {
-          first: "Eusebius",
-          //   middle: "Meaghan",
-          last: "Addicks",
+          name: { first: "Eusebius", last: "Addicks" },
           years: { unspecified: 1964 }
         },
         {
-          first: "Clodovicus",
-          middle: "Heliodoro",
-          last: "Watkins",
-          years: { unspecified: 1991 }
-        },
-        {
-          first: "Henrike",
-          middle: "Ahmet",
-          last: "Zilberschlag",
-          years: { unspecified: 1962 }
-        },
-        {
-          first: "Yerachme'el",
-          middle: "Madhuri",
-          last: "Vinter",
-          years: { unspecified: 1979, MBA: 1982 }
-        },
-        {
-          first: "Isabelle",
-          middle: "Sonja",
-          last: "Ngô",
+          name: {
+            first: "Ashwin",
+            middle: "Adwoa",
+            last: "Trevor"
+          },
           years: { MBA: 1988 }
         },
         {
-          first: "Rothaid",
-          middle: "Phinees",
-          last: "Kasun",
+          name: {
+            first: "Kacper",
+            middle: "Archippos",
+            last: "Gonzales"
+          },
+          years: { unspecified: 1988 }
+        },
+        {
+          name: {
+            first: "Chanda",
+            middle: "Jai",
+            last: "Aldebrandi"
+          },
+          years: { unspecified: 1984, MS: 1987 }
+        },
+        {
+          name: {
+            first: "Anshel",
+            middle: "Germund",
+            last: "Ó Riain"
+          },
+          years: { unspecified: 1987, MS: 1988, MBA: 1998 }
+        },
+        {
+          name: {
+            first: "Clodovicus",
+            middle: "Heliodoro",
+            last: "Watkins"
+          },
+          years: { unspecified: 1991 }
+        },
+        {
+          name: {
+            first: "Henrike",
+            middle: "Ahmet",
+            last: "Zilberschlag"
+          },
+          years: { unspecified: 1962 }
+        },
+        {
+          name: {
+            first: "Yerachme'el",
+            middle: "Madhuri",
+            last: "Vinter"
+          },
+          years: { unspecified: 1979, MBA: 1982 }
+        },
+        {
+          name: {
+            first: "Isabelle",
+            middle: "Sonja",
+            last: "Ngô"
+          },
+          years: { MBA: 1988 }
+        },
+        {
+          name: {
+            first: "Rothaid",
+            middle: "Phinees",
+            last: "Kasun"
+          },
           years: { unspecified: 1978, JD: 1982 }
         },
         {
-          first: "Stas",
-          middle: "Fabricius",
-          last: "Solomon",
+          name: {
+            first: "Stas",
+            middle: "Fabricius",
+            last: "Solomon"
+          },
           years: { unspecified: 1986, MS: 1987, MBA: 1992 }
         },
         {
-          first: "Staša",
-          middle: "Avanti",
-          last: "Tatham",
+          name: {
+            first: "Staša",
+            middle: "Avanti",
+            last: "Tatham"
+          },
           years: { unspecified: 1987 }
         },
         {
-          first: "Míša",
-          middle: "Marama",
-          last: "Thompsett",
+          name: {
+            first: "Míša",
+            middle: "Marama",
+            last: "Thompsett"
+          },
           years: { JD: 1970, MBA: 1971 }
         },
         {
-          first: "Seachlann",
-          middle: "Constantin",
-          last: "Süß",
+          name: {
+            first: "Seachlann",
+            middle: "Constantin",
+            last: "Süß"
+          },
           years: { unspecified: 1965 }
         },
         {
-          first: "Sibilla",
-          middle: "Núria",
-          last: "Sorg",
+          name: {
+            first: "Sibilla",
+            middle: "Núria",
+            last: "Sorg"
+          },
           years: { unspecified: 1966 }
         },
         {
-          first: "Kajetán",
-          middle: "Laia",
-          last: "Sorg",
+          name: {
+            first: "Kajetán",
+            middle: "Laia",
+            last: "Sorg"
+          },
           years: { MBA: 1997 }
         },
         {
-          first: "Spartak",
-          middle: "Laia",
-          last: "Tillens",
+          name: {
+            first: "Spartak",
+            middle: "Laia",
+            last: "Tillens"
+          },
           years: { unspecified: 1965 }
         },
         {
-          first: "Vikram",
-          middle: "Asim",
-          last: "Ó Cuilinn",
+          name: {
+            first: "Vikram",
+            middle: "Asim",
+            last: "Ó Cuilinn"
+          },
           years: { MBA: 1966 }
         },
         {
-          first: "Sarala",
-          middle: "Hari",
-          last: "Edison",
+          name: {
+            first: "Sarala",
+            middle: "Hari",
+            last: "Edison"
+          },
           years: { MBA: 1997 }
         },
         {
-          first: "Sher",
-          middle: "Šime",
-          last: "Jardine",
+          name: {
+            first: "Sher",
+            middle: "Šime",
+            last: "Jardine"
+          },
           years: { unspecified: 1995, MBA: 2000 }
         }
       ]

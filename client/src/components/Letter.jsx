@@ -10,10 +10,13 @@ class Letter extends React.Component {
   render() {
     return (
       <div>
-        {this.props.names.map((name, index) => {
-          return (
-            <div key={index}>{`${name.first} ${name.middle} ${name.last}`}</div>
-          );
+        {this.props.names.map((person, index) => {
+          let fullName = "";
+          for (const key in person) {
+            fullName += `${person[key]} `;
+          }
+
+          return <div key={index}>{`${fullName}`}</div>;
         })}
       </div>
     );
