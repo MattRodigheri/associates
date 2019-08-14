@@ -11,6 +11,8 @@ class NameTabs extends React.Component {
   }
 
   UNSAFE_componentWillMount() {
+    // componentDidMount() {
+    // componentWillReceiveProps() {
     let a = [];
     let b = [];
     let c = [];
@@ -44,7 +46,7 @@ class NameTabs extends React.Component {
       person => person.name.middle
     ]);
 
-    sortedNames.forEach((person, index) => {
+    sortedNames.forEach(person => {
       if (person.name.last[0] === "A") {
         a.push(person);
       }

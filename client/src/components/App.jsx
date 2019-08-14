@@ -2,16 +2,20 @@ import React from "react";
 import Counter from "./Counter.jsx";
 import Search from "./Search.jsx";
 import NameTabs from "./NameTabs.jsx";
+import NewMembers from "./NewMembers.jsx";
 
 class App extends React.Component {
   constructor() {
     super();
 
     this.state = {
+      checked: true,
+      namesToList: [],
       names: [
         {
           name: { first: "Eusebius", last: "Addicks" },
-          years: { unspecified: 1964 }
+          years: { unspecified: 1964 },
+          yearAdded: 2010
         },
         {
           name: {
@@ -19,7 +23,8 @@ class App extends React.Component {
             middle: "Adwoa",
             last: "Trevor"
           },
-          years: { MBA: 1988 }
+          years: { MBA: 1988 },
+          yearAdded: 2010
         },
         {
           name: {
@@ -27,7 +32,8 @@ class App extends React.Component {
             middle: "Archippos",
             last: "Gonzales"
           },
-          years: { unspecified: 1988 }
+          years: { unspecified: 1988 },
+          yearAdded: 2008
         },
         {
           name: {
@@ -35,7 +41,8 @@ class App extends React.Component {
             middle: "Jai",
             last: "Aldebrandi"
           },
-          years: { unspecified: 1984, MS: 1987 }
+          years: { unspecified: 1984, MS: 1987 },
+          yearAdded: 2007
         },
         {
           name: {
@@ -43,7 +50,8 @@ class App extends React.Component {
             middle: "Germund",
             last: "Ó Riain"
           },
-          years: { unspecified: 1987, MS: 1988, MBA: 1998 }
+          years: { unspecified: 1987, MS: 1988, MBA: 1998 },
+          yearAdded: 2006
         },
         {
           name: {
@@ -51,7 +59,8 @@ class App extends React.Component {
             middle: "Heliodoro",
             last: "Watkins"
           },
-          years: { unspecified: 1991 }
+          years: { unspecified: 1991 },
+          yearAdded: 2005
         },
         {
           name: {
@@ -59,7 +68,8 @@ class App extends React.Component {
             middle: "Ahmet",
             last: "Zilberschlag"
           },
-          years: { unspecified: 1962 }
+          years: { unspecified: 1962 },
+          yearAdded: 2004
         },
         {
           name: {
@@ -67,7 +77,8 @@ class App extends React.Component {
             middle: "Madhuri",
             last: "Vinter"
           },
-          years: { unspecified: 1979, MBA: 1982 }
+          years: { unspecified: 1979, MBA: 1982 },
+          yearAdded: 2003
         },
         {
           name: {
@@ -75,7 +86,8 @@ class App extends React.Component {
             middle: "Sonja",
             last: "Ngô"
           },
-          years: { MBA: 1988 }
+          years: { MBA: 1988 },
+          yearAdded: 2002
         },
         {
           name: {
@@ -83,7 +95,8 @@ class App extends React.Component {
             middle: "Phinees",
             last: "Kasun"
           },
-          years: { unspecified: 1978, JD: 1982 }
+          years: { unspecified: 1978, JD: 1982 },
+          yearAdded: 2001
         },
         {
           name: {
@@ -91,7 +104,8 @@ class App extends React.Component {
             middle: "Fabricius",
             last: "Solomon"
           },
-          years: { unspecified: 1986, MS: 1987, MBA: 1992 }
+          years: { unspecified: 1986, MS: 1987, MBA: 1992 },
+          yearAdded: 2000
         },
         {
           name: {
@@ -99,7 +113,8 @@ class App extends React.Component {
             middle: "Avanti",
             last: "Tatham"
           },
-          years: { unspecified: 1987 }
+          years: { unspecified: 1987 },
+          yearAdded: 1999
         },
         {
           name: {
@@ -107,7 +122,8 @@ class App extends React.Component {
             middle: "Marama",
             last: "Thompsett"
           },
-          years: { JD: 1970, MBA: 1971 }
+          years: { JD: 1970, MBA: 1971 },
+          yearAdded: 1998
         },
         {
           name: {
@@ -115,7 +131,8 @@ class App extends React.Component {
             middle: "Constantin",
             last: "Süß"
           },
-          years: { unspecified: 1965 }
+          years: { unspecified: 1965 },
+          yearAdded: 1997
         },
         {
           name: {
@@ -123,7 +140,8 @@ class App extends React.Component {
             middle: "Núria",
             last: "Sorg"
           },
-          years: { unspecified: 1966 }
+          years: { unspecified: 1966 },
+          yearAdded: 1996
         },
         {
           name: {
@@ -131,7 +149,8 @@ class App extends React.Component {
             middle: "Laia",
             last: "Sorg"
           },
-          years: { MBA: 1997 }
+          years: { MBA: 1997 },
+          yearAdded: 1995
         },
         {
           name: {
@@ -139,7 +158,8 @@ class App extends React.Component {
             middle: "Laia",
             last: "Tillens"
           },
-          years: { unspecified: 1965 }
+          years: { unspecified: 1965 },
+          yearAdded: 1994
         },
         {
           name: {
@@ -147,7 +167,8 @@ class App extends React.Component {
             middle: "Asim",
             last: "Ó Cuilinn"
           },
-          years: { MBA: 1966 }
+          years: { MBA: 1966 },
+          yearAdded: 1993
         },
         {
           name: {
@@ -155,7 +176,8 @@ class App extends React.Component {
             middle: "Hari",
             last: "Edison"
           },
-          years: { MBA: 1997 }
+          years: { MBA: 1997 },
+          yearAdded: 1992
         },
         {
           name: {
@@ -163,18 +185,65 @@ class App extends React.Component {
             middle: "Šime",
             last: "Jardine"
           },
-          years: { unspecified: 1995, MBA: 2000 }
+          years: { unspecified: 1995, MBA: 2000 },
+          yearAdded: 1991
         }
       ]
     };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange() {
+    this.setState({
+      checked: !this.state.checked
+    });
+    if (this.state.checked) {
+      let recentlyAdded = [];
+      let mostRecent = Math.max.apply(
+        Math,
+        this.state.names.map(name => {
+          return name.yearAdded;
+        })
+      );
+      for (const person in this.state.names) {
+        if (this.state.names[person].yearAdded === mostRecent) {
+          recentlyAdded.push(this.state.names[person]);
+        }
+      }
+      this.setState({
+        // recentlyAdded
+        namesToList: recentlyAdded
+      });
+    } else {
+      this.setState({
+        // recentlyAdded: []
+        namesToList: []
+      });
+    }
   }
 
   render() {
+    // let namesToList = [];
+    // if (this.state.recentlyAdded.length > 0) {
+    //   namesToList = this.state.recentlyAdded;
+    // } else {
+    //   namesToList = this.state.names;
+    // }
+    // console.log(namesToList);
+    let namesToList;
+    if (this.state.namesToList.length === 0) {
+      namesToList = <NameTabs names={this.state.names} />;
+    } else {
+      namesToList = <NameTabs names={this.state.namesToList} />;
+    }
     return (
       <div>
         <Counter count={this.state.names.length} />
+        <NewMembers names={this.state.names} handleChange={this.handleChange} />
         <Search names={this.state.names} />
-        <NameTabs names={this.state.names} />
+        {namesToList}
+        {/* <NameTabs names={this.state.namesToList} /> */}
       </div>
     );
   }

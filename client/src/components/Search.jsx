@@ -39,32 +39,36 @@ class Search extends React.Component {
     const regex = new RegExp("\\b" + escapedValue, "i");
 
     return this.props.names.filter(person =>
-      regex.test(this.getSuggestionValue(person.name, person.years))
+      regex.test(this.getSuggestionValue(person))
     );
   }
 
-  getSuggestionValue(nameSuggestion, yearSuggestion) {
-    //TODO: fix 'undefined' if no middle name, etc.
-    let years = "";
-    for (const key in yearSuggestion) {
-      years += `${yearSuggestion[key]} `;
+  getSuggestionValue(suggestion) {
+    let fullName = "";
+    for (const key in suggestion.name) {
+      fullName += `${suggestion.name[key]} `;
     }
-    return `${nameSuggestion.first} ${nameSuggestion.middle} ${
-      nameSuggestion.last
-    } ${years}`;
-  }
 
-  renderSuggestion(suggestion) {
-    //TODO: fix 'undefined' if no middle name, etc.
     let years = "";
     for (const key in suggestion.years) {
       years += `${suggestion.years[key]} `;
     }
-    return (
-      <div>{`${suggestion.name.first} ${suggestion.name.middle} ${
-        suggestion.name.last
-      } ${years}`}</div>
-    );
+
+    return `${fullName} ${years}`;
+  }
+
+  renderSuggestion(suggestion) {
+    let fullName = "";
+    for (const key in suggestion.name) {
+      fullName += `${suggestion.name[key]} `;
+    }
+
+    let years = "";
+    for (const key in suggestion.years) {
+      years += `${suggestion.years[key]} `;
+    }
+
+    return <div>{`${fullName} ${years}`}</div>;
   }
 
   onChange(event, { newValue }) {
@@ -94,7 +98,7 @@ class Search extends React.Component {
     const { value, suggestions } = this.state;
 
     const inputProps = {
-      placeholder: "Search Name or Year",
+      placeholder: "Search for a Name",
       value,
       onChange: this.onChange
     };
