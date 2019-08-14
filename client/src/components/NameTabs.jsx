@@ -46,82 +46,82 @@ class NameTabs extends React.Component {
 
     sortedNames.forEach((person, index) => {
       if (person.name.last[0] === "A") {
-        a.push(person.name);
+        a.push(person);
       }
       if (person.name.last[0] === "B") {
-        b.push(person.name);
+        b.push(person);
       }
       if (person.name.last[0] === "C") {
-        c.push(person.name);
+        c.push(person);
       }
       if (person.name.last[0] === "D") {
-        d.push(person.name);
+        d.push(person);
       }
       if (person.name.last[0] === "E") {
         e.push(person.name);
       }
       if (person.name.last[0] === "F") {
-        f.push(person.name);
+        f.push(person);
       }
       if (person.name.last[0] === "G") {
-        g.push(person.name);
+        g.push(person);
       }
       if (person.name.last[0] === "H") {
-        h.push(person.name);
+        h.push(person);
       }
       if (person.name.last[0] === "I") {
-        i.push(person.name);
+        i.push(person);
       }
       if (person.name.last[0] === "J") {
-        j.push(person.name);
+        j.push(person);
       }
       if (person.name.last[0] === "K") {
-        k.push(person.name);
+        k.push(person);
       }
       if (person.name.last[0] === "L") {
-        l.push(person.name);
+        l.push(person);
       }
       if (person.name.last[0] === "M") {
-        m.push(person.name);
+        m.push(person);
       }
       if (person.name.last[0] === "N") {
-        n.push(person.name);
+        n.push(person);
       }
       if (person.name.last[0] === "O") {
-        o.push(person.name);
+        o.push(person);
       }
       if (person.name.last[0] === "P") {
-        p.push(person.name);
+        p.push(person);
       }
       if (person.name.last[0] === "Q") {
-        q.push(person.name);
+        q.push(person);
       }
       if (person.name.last[0] === "R") {
-        r.push(person.name);
+        r.push(person);
       }
       if (person.name.last[0] === "S") {
-        s.push(person.name);
+        s.push(person);
       }
       if (person.name.last[0] === "T") {
-        t.push(person.name);
+        t.push(person);
       }
       if (person.name.last[0] === "U") {
-        u.push(person.name);
+        u.push(person);
       }
       if (person.name.last[0] === "V") {
-        v.push(person.name);
+        v.push(person);
       }
       if (person.name.last[0] === "W") {
-        w.push(person.name);
+        w.push(person);
       }
       if (person.name.last[0] === "X") {
-        x.push(person.name);
+        x.push(person);
       }
       if (person.name.last[0] === "Y") {
-        y.push(person.name);
+        y.push(person);
       }
       if (person.name.last[0] === "Z") {
-        z.push(person.name);
+        z.push(person);
       }
     });
     this.setState({

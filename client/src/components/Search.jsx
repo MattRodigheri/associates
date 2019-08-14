@@ -39,7 +39,7 @@ class Search extends React.Component {
     const regex = new RegExp("\\b" + escapedValue, "i");
 
     return this.props.names.filter(person =>
-      regex.test(this.getSuggestionValue(person))
+      regex.test(this.getSuggestionValue(person.name))
     );
   }
 
@@ -50,7 +50,9 @@ class Search extends React.Component {
 
   renderSuggestion(suggestion) {
     return (
-      <div>{`${suggestion.first} ${suggestion.middle} ${suggestion.last}`}</div>
+      <div>{`${suggestion.name.first} ${suggestion.name.middle} ${
+        suggestion.name.last
+      }`}</div>
     );
   }
 
@@ -81,7 +83,7 @@ class Search extends React.Component {
     const { value, suggestions } = this.state;
 
     const inputProps = {
-      placeholder: "Search for a Name",
+      placeholder: "Search Name or Year",
       value,
       onChange: this.onChange
     };
