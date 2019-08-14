@@ -57,9 +57,8 @@ class Search extends React.Component {
   renderSuggestion(suggestion) {
     //TODO: fix 'undefined' if no middle name, etc.
     let years = "";
-    for (const key in suggestion.year) {
-      console.log(suggestion.year);
-      years += `${suggestion.year[key]} `;
+    for (const key in suggestion.years) {
+      years += `${suggestion.years[key]} `;
     }
     return (
       <div>{`${suggestion.name.first} ${suggestion.name.middle} ${
