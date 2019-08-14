@@ -16,11 +16,17 @@ class Letter extends React.Component {
           for (const key in person.name) {
             fullName += `${person.name[key]} `;
           }
-          let degrees = "";
+          let degrees = [];
           for (const key in person.years) {
-            degrees += `${key} ${person.years[key]} `;
+            let degree;
+            if (key === "unspecified") {
+              degree = "";
+            } else {
+              degree = key;
+            }
+            degrees.push(`${degree} ${person.years[key]}`);
           }
-          return <div key={index}>{`${fullName} ${degrees}`}</div>;
+          return <div key={index}>{`${fullName} ${degrees.join(", ")}`}</div>;
         })}
       </div>
     );

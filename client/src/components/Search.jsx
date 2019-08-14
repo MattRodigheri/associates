@@ -49,6 +49,7 @@ class Search extends React.Component {
   }
 
   renderSuggestion(suggestion) {
+    //TODO: fix 'undefined' if no middle name, etc.
     return (
       <div>{`${suggestion.name.first} ${suggestion.name.middle} ${
         suggestion.name.last
