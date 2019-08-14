@@ -1,5 +1,6 @@
 import React from "react";
 import Autosuggest from "react-autosuggest";
+import SearchResults from "./SearchResults.jsx";
 
 class Search extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class Search extends React.Component {
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(
       this
     );
+    this.search = this.search.bind(this);
   }
 
   escapeRegexCharacters(str) {
@@ -28,8 +30,6 @@ class Search extends React.Component {
   }
 
   getSuggestions(value) {
-    // const inputValue = value.trim().toLowerCase();
-    // const inputLength = inputValue.length;
     const escapedValue = this.escapeRegexCharacters(value.trim());
 
     if (escapedValue === "") {
@@ -44,12 +44,14 @@ class Search extends React.Component {
   }
 
   getSuggestionValue(suggestion) {
-    //fix 'undefined' if no middle name, etc.
+    //TODO: fix 'undefined' if no middle name, etc.
     return `${suggestion.first} ${suggestion.middle} ${suggestion.last}`;
   }
 
   renderSuggestion(suggestion) {
-    return <div>{`${suggestion.first} ${suggestion.last}`}</div>;
+    return (
+      <div>{`${suggestion.first} ${suggestion.middle} ${suggestion.last}`}</div>
+    );
   }
 
   onChange(event, { newValue }) {
@@ -60,7 +62,8 @@ class Search extends React.Component {
 
   onSuggestionsFetchRequested({ value }) {
     this.setState({
-      suggestions: this.getSuggestions(value)
+      suggestions: this.getSuggestions(value),
+      searchResults: this.getSuggestions(value)
     });
   }
 
@@ -68,6 +71,10 @@ class Search extends React.Component {
     this.setState({
       suggestions: []
     });
+  }
+
+  search() {
+    console.log("implement search function");
   }
 
   render() {
@@ -80,14 +87,18 @@ class Search extends React.Component {
     };
 
     return (
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={this.getSuggestionValue}
-        renderSuggestion={this.renderSuggestion}
-        inputProps={inputProps}
-      />
+      <div>
+        <Autosuggest
+          suggestions={suggestions}
+          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+          getSuggestionValue={this.getSuggestionValue}
+          renderSuggestion={this.renderSuggestion}
+          inputProps={inputProps}
+        />
+        <button onClick={this.search}>Search</button>
+        <SearchResults />
+      </div>
     );
   }
 }

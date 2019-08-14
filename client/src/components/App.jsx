@@ -1,6 +1,7 @@
 import React from "react";
 import { Tabs, Tab } from "react-bootstrap";
 import sort from "fast-sort";
+import Counter from "./Counter.jsx";
 import Search from "./Search.jsx";
 
 class App extends React.Component {
@@ -275,134 +276,239 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Counter count={this.state.names.length} />
         <Search names={this.state.names} />
         <Tabs defaultActiveKey="a-b">
           <Tab eventKey="a-b" title="A-B">
             <div>A</div>
             {this.state.a.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
             <div>B</div>
             {this.state.b.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
           </Tab>
           <Tab eventKey="c-d" title="C-D">
             <div>C</div>
             {this.state.c.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
             <div>D</div>
             {this.state.d.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
           </Tab>
           <Tab eventKey="e-f" title="E-F">
             <div>E</div>
             {this.state.e.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
             <div>F</div>
             {this.state.f.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
           </Tab>
           <Tab eventKey="g-h" title="G-H">
             <div>G</div>
             {this.state.g.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
             <div>H</div>
             {this.state.h.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
           </Tab>
           <Tab eventKey="i-j" title="I-J">
             <div>I</div>
             {this.state.i.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
             <div>J</div>
             {this.state.j.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
           </Tab>
           <Tab eventKey="k-l" title="K-L">
             <div>K</div>
             {this.state.k.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
             <div>L</div>
             {this.state.l.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
           </Tab>
           <Tab eventKey="m-n" title="M-N">
             <div>M</div>
             {this.state.m.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
             <div>N</div>
             {this.state.n.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
           </Tab>
           <Tab eventKey="o-p" title="O-P">
             <div>O</div>
             {this.state.o.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
             <div>P</div>
             {this.state.p.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
           </Tab>
           <Tab eventKey="q-r" title="Q-R">
             <div>Q</div>
             {this.state.q.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
             <div>R</div>
             {this.state.r.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
           </Tab>
           <Tab eventKey="s-t" title="S-T">
             <div>S</div>
             {this.state.s.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
             <div>T</div>
             {this.state.t.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
           </Tab>
           <Tab eventKey="u-v" title="U-V">
             <div>U</div>
             {this.state.u.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
             <div>V</div>
             {this.state.v.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
           </Tab>
           <Tab eventKey="w-z" title="W-Z">
             <div>W</div>
             {this.state.w.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
             <div>X</div>
             {this.state.x.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
             <div>Y</div>
             {this.state.y.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
             <div>Z</div>
             {this.state.z.map((name, index) => {
-              return <div key={index}>{`${name.first} ${name.last}`}</div>;
+              return (
+                <div key={index}>{`${name.first} ${name.middle} ${
+                  name.last
+                }`}</div>
+              );
             })}
           </Tab>
         </Tabs>
