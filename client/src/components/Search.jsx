@@ -39,21 +39,32 @@ class Search extends React.Component {
     const regex = new RegExp("\\b" + escapedValue, "i");
 
     return this.props.names.filter(person =>
-      regex.test(this.getSuggestionValue(person.name))
+      regex.test(this.getSuggestionValue(person.name, person.years))
     );
   }
 
-  getSuggestionValue(suggestion) {
+  getSuggestionValue(nameSuggestion, yearSuggestion) {
     //TODO: fix 'undefined' if no middle name, etc.
-    return `${suggestion.first} ${suggestion.middle} ${suggestion.last}`;
+    let years = "";
+    for (const key in yearSuggestion) {
+      years += `${yearSuggestion[key]} `;
+    }
+    return `${nameSuggestion.first} ${nameSuggestion.middle} ${
+      nameSuggestion.last
+    } ${years}`;
   }
 
   renderSuggestion(suggestion) {
     //TODO: fix 'undefined' if no middle name, etc.
+    let years = "";
+    for (const key in suggestion.year) {
+      console.log(suggestion.year);
+      years += `${suggestion.year[key]} `;
+    }
     return (
       <div>{`${suggestion.name.first} ${suggestion.name.middle} ${
         suggestion.name.last
-      }`}</div>
+      } ${years}`}</div>
     );
   }
 

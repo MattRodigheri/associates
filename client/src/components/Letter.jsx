@@ -8,7 +8,6 @@ class Letter extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
         {this.props.names.map((person, index) => {
