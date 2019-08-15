@@ -114,7 +114,10 @@ class Search extends React.Component {
           renderSuggestion={this.renderSuggestion}
           inputProps={inputProps}
         />
-        <SearchResults results={this.state.searchResults} />
+        <SearchResults
+          results={this.state.searchResults}
+          value={this.state.value}
+        />
       </div>
     );
   }
