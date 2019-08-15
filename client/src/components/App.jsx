@@ -1,4 +1,6 @@
 import React from "react";
+import * as contentful from "contentful";
+import keys from "../../../keys.js";
 import Counter from "./Counter.jsx";
 import Search from "./Search.jsx";
 import NameTabs from "./NameTabs.jsx";
@@ -8,6 +10,7 @@ class App extends React.Component {
     super();
 
     this.state = {
+      posts: [],
       names: [
         {
           name: { first: "Eusebius", last: "Addicks" },
@@ -187,9 +190,34 @@ class App extends React.Component {
         }
       ]
     };
+
+    this.client = contentful.createClient({
+      space: keys.space,
+      accessToken: keys.accessToken
+    });
+
+    this.fetchPosts = this.fetchPosts.bind(this);
+    this.setPosts = this.setPosts.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchPosts().then(this.setPosts);
+  }
+
+  fetchPosts() {
+    return this.client.getEntries();
+  }
+
+  setPosts(response) {
+    this.setState({
+      posts: response.items
+    });
   }
 
   render() {
+    if (this.state.posts.length > 0) {
+      console.log(this.state.posts);
+    }
     return (
       <div>
         <Counter count={this.state.names.length} />
