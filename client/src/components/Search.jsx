@@ -8,7 +8,8 @@ class Search extends React.Component {
 
     this.state = {
       value: "",
-      suggestions: []
+      suggestions: [],
+      searchResults: []
     };
 
     this.escapeRegexCharacters = this.escapeRegexCharacters.bind(this);
@@ -22,7 +23,6 @@ class Search extends React.Component {
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(
       this
     );
-    this.search = this.search.bind(this);
   }
 
   escapeRegexCharacters(str) {
@@ -54,6 +54,11 @@ class Search extends React.Component {
       years += `${suggestion.years[key]} `;
     }
 
+    let resultingNames = [];
+    resultingNames.push(`${fullName} ${years}`);
+    this.setState({
+      searchResults: resultingNames
+    });
     return `${fullName} ${years}`;
   }
 
@@ -90,10 +95,6 @@ class Search extends React.Component {
     });
   }
 
-  search() {
-    console.log("implement search function");
-  }
-
   render() {
     const { value, suggestions } = this.state;
 
@@ -113,8 +114,7 @@ class Search extends React.Component {
           renderSuggestion={this.renderSuggestion}
           inputProps={inputProps}
         />
-        <button onClick={this.search}>Search</button>
-        <SearchResults />
+        <SearchResults results={this.state.searchResults} />
       </div>
     );
   }
