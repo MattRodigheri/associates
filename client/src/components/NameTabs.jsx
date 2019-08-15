@@ -9,9 +9,7 @@ class NameTabs extends React.Component {
     super(props);
 
     this.state = {
-      // namesToList: [],
-      checked: true,
-      names: []
+      checked: true
     };
 
     this.sortNames = this.sortNames.bind(this);
@@ -50,7 +48,6 @@ class NameTabs extends React.Component {
     let y = [];
     let z = [];
 
-    // const sortedNames = sort(this.props.names).asc([
     const sortedNames = sort(names).asc([
       person => person.name.last,
       person => person.name.first,
