@@ -5,9 +5,11 @@ const Letter = props => {
     <div>
       {props.names.map((person, index) => {
         let fullName = "";
-        for (const key in person.name) {
-          fullName += `${person.name[key]} `;
+        let middleName = "";
+        if (person.name.middle !== "") {
+          middleName = person.name.middle;
         }
+        fullName += `${person.name.first} ${middleName} ${person.name.last}`;
         let degrees = [];
         for (const key in person.years) {
           let degree;
