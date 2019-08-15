@@ -46,7 +46,7 @@ class Search extends React.Component {
   getSuggestionValue(suggestion) {
     let fullName = "";
     let middleName = "";
-    if (suggestion.name.middle !== "") {
+    if (suggestion.name.middle !== undefined) {
       middleName = suggestion.name.middle;
     }
     fullName += `${suggestion.name.first} ${middleName} ${
@@ -69,7 +69,7 @@ class Search extends React.Component {
   renderSuggestion(suggestion) {
     let fullName = "";
     let middleName = "";
-    if (suggestion.name.middle !== "") {
+    if (suggestion.name.middle !== undefined) {
       middleName = suggestion.name.middle;
     }
     fullName += `${suggestion.name.first} ${middleName} ${

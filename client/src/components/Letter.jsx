@@ -6,7 +6,7 @@ const Letter = props => {
       {props.names.map((person, index) => {
         let fullName = "";
         let middleName = "";
-        if (person.name.middle !== "") {
+        if (person.name.middle !== undefined) {
           middleName = person.name.middle;
         }
         fullName += `${person.name.first} ${middleName} ${person.name.last}`;
