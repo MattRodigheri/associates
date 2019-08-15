@@ -2,15 +2,15 @@ import React from "react";
 import Counter from "./Counter.jsx";
 import Search from "./Search.jsx";
 import NameTabs from "./NameTabs.jsx";
-import NewMembers from "./NewMembers.jsx";
+// import NewMembers from "./NewMembers.jsx";
 
 class App extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      checked: true,
-      namesToList: [],
+      // checked: true,
+      // namesToList: [],
       names: [
         {
           name: { first: "Eusebius", last: "Addicks" },
@@ -191,59 +191,46 @@ class App extends React.Component {
       ]
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange() {
-    this.setState({
-      checked: !this.state.checked
-    });
-    if (this.state.checked) {
-      let recentlyAdded = [];
-      let mostRecent = Math.max.apply(
-        Math,
-        this.state.names.map(name => {
-          return name.yearAdded;
-        })
-      );
-      for (const person in this.state.names) {
-        if (this.state.names[person].yearAdded === mostRecent) {
-          recentlyAdded.push(this.state.names[person]);
-        }
-      }
-      this.setState({
-        // recentlyAdded
-        namesToList: recentlyAdded
-      });
-    } else {
-      this.setState({
-        // recentlyAdded: []
-        namesToList: []
-      });
-    }
-  }
+  // handleChange() {
+  //   this.setState({
+  //     checked: !this.state.checked
+  //   });
+
+  //   if (this.state.checked) {
+  //     let recentlyAdded = [];
+  //     let mostRecent = Math.max.apply(
+  //       Math,
+  //       this.state.names.map(name => {
+  //         return name.yearAdded;
+  //       })
+  //     );
+
+  //     for (const person in this.state.names) {
+  //       if (this.state.names[person].yearAdded === mostRecent) {
+  //         recentlyAdded.push(this.state.names[person]);
+  //       }
+  //     }
+
+  //     this.setState({
+  //       namesToList: recentlyAdded
+  //     });
+  //   } else {
+  //     this.setState({
+  //       namesToList: this.state.names
+  //     });
+  //   }
+  // }
 
   render() {
-    // let namesToList = [];
-    // if (this.state.recentlyAdded.length > 0) {
-    //   namesToList = this.state.recentlyAdded;
-    // } else {
-    //   namesToList = this.state.names;
-    // }
-    // console.log(namesToList);
-    let namesToList;
-    if (this.state.namesToList.length === 0) {
-      namesToList = <NameTabs names={this.state.names} />;
-    } else {
-      namesToList = <NameTabs names={this.state.namesToList} />;
-    }
     return (
       <div>
         <Counter count={this.state.names.length} />
-        <NewMembers names={this.state.names} handleChange={this.handleChange} />
+        {/* <NewMembers names={this.state.names} handleChange={this.handleChange} /> */}
         <Search names={this.state.names} />
-        {namesToList}
-        {/* <NameTabs names={this.state.namesToList} /> */}
+        <NameTabs names={this.state.names} />
       </div>
     );
   }

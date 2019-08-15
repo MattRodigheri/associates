@@ -1,18 +1,28 @@
 import React from "react";
 import { Tabs, Tab } from "react-bootstrap";
 import sort from "fast-sort";
+import NewMembers from "./NewMembers.jsx";
 import Letter from "./Letter.jsx";
 
 class NameTabs extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      // namesToList: [],
+      checked: true,
+      names: []
+    };
+
+    this.sortNames = this.sortNames.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   UNSAFE_componentWillMount() {
-    // componentDidMount() {
-    // componentWillReceiveProps() {
+    return this.sortNames(this.props.names);
+  }
+
+  sortNames(names) {
     let a = [];
     let b = [];
     let c = [];
@@ -40,7 +50,8 @@ class NameTabs extends React.Component {
     let y = [];
     let z = [];
 
-    const sortedNames = sort(this.props.names).asc([
+    // const sortedNames = sort(this.props.names).asc([
+    const sortedNames = sort(names).asc([
       person => person.name.last,
       person => person.name.first,
       person => person.name.middle
@@ -126,6 +137,7 @@ class NameTabs extends React.Component {
         z.push(person);
       }
     });
+
     this.setState({
       a,
       b,
@@ -156,9 +168,36 @@ class NameTabs extends React.Component {
     });
   }
 
+  handleChange() {
+    this.setState({
+      checked: !this.state.checked
+    });
+
+    if (this.state.checked) {
+      let recentlyAdded = [];
+      let mostRecent = Math.max.apply(
+        Math,
+        this.props.names.map(name => {
+          return name.yearAdded;
+        })
+      );
+
+      for (const person in this.props.names) {
+        if (this.props.names[person].yearAdded === mostRecent) {
+          recentlyAdded.push(this.props.names[person]);
+        }
+      }
+
+      this.sortNames(recentlyAdded);
+    } else {
+      this.sortNames(this.props.names);
+    }
+  }
+
   render() {
     return (
       <div>
+        <NewMembers handleChange={this.handleChange} />
         <Tabs defaultActiveKey="a-b">
           <Tab eventKey="a-b" title="A-B">
             <div>A</div>
