@@ -13,7 +13,11 @@ class SearchResults extends React.Component {
     let resultingNames;
     if (this.props.results) {
       resultingNames = this.props.results.map((person, index) => {
-        let years = "";
+        let fullName = "";
+        for (const key in person.name) {
+          fullName += `${person.name[key]} `;
+        }
+        let degrees = [];
         for (const key in person.years) {
           let degree;
           if (key === "unspecified") {
@@ -21,13 +25,9 @@ class SearchResults extends React.Component {
           } else {
             degree = key;
           }
-          years += `${degree} ${person.years[key]} `;
+          degrees.push(`${degree} ${person.years[key]}`);
         }
-        return (
-          <div key={index}>{`${person.name.first} ${person.name.middle} ${
-            person.name.last
-          } ${years}`}</div>
-        );
+        return <div key={index}>{`${fullName} ${degrees.join(", ")}`}</div>;
       });
       this.setState({
         results: resultingNames
