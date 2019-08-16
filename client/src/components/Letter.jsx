@@ -13,12 +13,8 @@ const Letter = props => {
         let degrees = [];
         for (const key in person.years) {
           let degree;
-          if (key === "unspecified") {
-            degree = "";
-          } else {
-            degree = key;
-          }
-          degrees.push(`${degree} ${person.years[key]}`);
+          degree = person.years[key];
+          degrees.push(`${degree}`);
         }
         return <div key={index}>{`${fullName} ${degrees.join(", ")}`}</div>;
       })}

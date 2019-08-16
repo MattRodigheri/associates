@@ -53,17 +53,19 @@ class Search extends React.Component {
       suggestion.name.last
     }`;
 
-    let years = "";
+    let degrees = [];
     for (const key in suggestion.years) {
-      years += `${suggestion.years[key]} `;
+      let degree;
+      degree = suggestion.years[key];
+      degrees.push(` ${degree}`);
     }
 
     let resultingNames = [];
-    resultingNames.push(`${fullName} ${years}`);
+    resultingNames.push(`${fullName} ${degrees}`);
     this.setState({
       searchResults: resultingNames
     });
-    return `${fullName} ${years}`;
+    return `${fullName} ${degrees} `;
   }
 
   renderSuggestion(suggestion) {
@@ -76,12 +78,14 @@ class Search extends React.Component {
       suggestion.name.last
     }`;
 
-    let years = "";
+    let degrees = [];
     for (const key in suggestion.years) {
-      years += `${suggestion.years[key]} `;
+      let degree;
+      degree = suggestion.years[key];
+      degrees.push(` ${degree}`);
     }
 
-    return <div>{`${fullName} ${years}`}</div>;
+    return <div>{`${fullName} ${degrees} `}</div>;
   }
 
   onChange(event, { newValue }) {
