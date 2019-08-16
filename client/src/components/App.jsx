@@ -47,10 +47,6 @@ class App extends React.Component {
         {this.state && this.state.names && (
           <NameTabs names={this.state.names} />
         )}
-        {/* 
-        <Counter count={this.state.test ? this.state.test.length : 0} />
-        <Search names={this.state.test} />
-        {this.state && this.state.test && <NameTabs names={this.state.test} />} */}
       </div>
     );
   }
