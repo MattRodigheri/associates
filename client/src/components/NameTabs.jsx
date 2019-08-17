@@ -17,7 +17,7 @@ class NameTabs extends React.Component {
   }
 
   UNSAFE_componentWillMount() {
-    return this.sortNames(this.props.names);
+    this.sortNames(this.props.names);
   }
 
   sortNames(names) {
