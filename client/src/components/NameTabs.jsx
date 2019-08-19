@@ -54,83 +54,83 @@ class NameTabs extends React.Component {
       person => person.name.middle
     ]);
 
-    sortedNames.forEach(person => {
-      if (person.name.last[0] === "A") {
+    sortedNames.items.forEach(person => {
+      if (person.fields.name.last[0] === "A") {
         a.push(person);
       }
-      if (person.name.last[0] === "B") {
+      if (person.fields.name.last[0] === "B") {
         b.push(person);
       }
-      if (person.name.last[0] === "C") {
+      if (person.fields.name.last[0] === "C") {
         c.push(person);
       }
-      if (person.name.last[0] === "D") {
+      if (person.fields.name.last[0] === "D") {
         d.push(person);
       }
-      if (person.name.last[0] === "E") {
-        e.push(person.name);
+      if (person.fields.name.last[0] === "E") {
+        e.push(person);
       }
-      if (person.name.last[0] === "F") {
+      if (person.fields.name.last[0] === "F") {
         f.push(person);
       }
-      if (person.name.last[0] === "G") {
+      if (person.fields.name.last[0] === "G") {
         g.push(person);
       }
-      if (person.name.last[0] === "H") {
+      if (person.fields.name.last[0] === "H") {
         h.push(person);
       }
-      if (person.name.last[0] === "I") {
+      if (person.fields.name.last[0] === "I") {
         i.push(person);
       }
-      if (person.name.last[0] === "J") {
+      if (person.fields.name.last[0] === "J") {
         j.push(person);
       }
-      if (person.name.last[0] === "K") {
+      if (person.fields.name.last[0] === "K") {
         k.push(person);
       }
-      if (person.name.last[0] === "L") {
+      if (person.fields.name.last[0] === "L") {
         l.push(person);
       }
-      if (person.name.last[0] === "M") {
+      if (person.fields.name.last[0] === "M") {
         m.push(person);
       }
-      if (person.name.last[0] === "N") {
+      if (person.fields.name.last[0] === "N") {
         n.push(person);
       }
-      if (person.name.last[0] === "O") {
+      if (person.fields.name.last[0] === "O") {
         o.push(person);
       }
-      if (person.name.last[0] === "P") {
+      if (person.fields.name.last[0] === "P") {
         p.push(person);
       }
-      if (person.name.last[0] === "Q") {
+      if (person.fields.name.last[0] === "Q") {
         q.push(person);
       }
-      if (person.name.last[0] === "R") {
+      if (person.fields.name.last[0] === "R") {
         r.push(person);
       }
-      if (person.name.last[0] === "S") {
+      if (person.fields.name.last[0] === "S") {
         s.push(person);
       }
-      if (person.name.last[0] === "T") {
+      if (person.fields.name.last[0] === "T") {
         t.push(person);
       }
-      if (person.name.last[0] === "U") {
+      if (person.fields.name.last[0] === "U") {
         u.push(person);
       }
-      if (person.name.last[0] === "V") {
+      if (person.fields.name.last[0] === "V") {
         v.push(person);
       }
-      if (person.name.last[0] === "W") {
+      if (person.fields.name.last[0] === "W") {
         w.push(person);
       }
-      if (person.name.last[0] === "X") {
+      if (person.fields.name.last[0] === "X") {
         x.push(person);
       }
-      if (person.name.last[0] === "Y") {
+      if (person.fields.name.last[0] === "Y") {
         y.push(person);
       }
-      if (person.name.last[0] === "Z") {
+      if (person.fields.name.last[0] === "Z") {
         z.push(person);
       }
     });
