@@ -1,5 +1,13 @@
 # associates
 
-to start webpack: 'npm run react-dev'
+__In Terminal:__
 
-to start server: 'npm start'
+To install necessary packages: 'npm install'
+
+To start webpack: 'npm run react-dev'
+
+To start server: 'npm start'
+
+__In Browser:__
+
+Go to http://localhost:3000/
