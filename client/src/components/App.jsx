@@ -1,5 +1,6 @@
 import React from "react";
 import * as contentful from "contentful";
+import Tabletop from "Tabletop";
 import axios from "axios";
 import keys from "../../../keys.js";
 import Counter from "./Counter.jsx";
@@ -10,15 +11,7 @@ class App extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      test: [
-        {
-          name: { first: "Matt", last: "Rodigheri" },
-          years: { degree1: "BA 2005" },
-          yearAdded: 2019
-        }
-      ]
-    };
+    this.state = {};
 
     this.client = contentful.createClient({
       space: keys.space,
@@ -48,25 +41,34 @@ class App extends React.Component {
   // }
 
   componentDidMount() {
-    axios
-      .get(
-        `https://cdn.contentful.com/spaces/${keys.space}/entries?access_token=${
-          keys.accessToken
-        }&limit=1000`
-      )
-      .then(response => {
-        console.log(response.data);
-        let names = [];
-        response.data.items.forEach(person => {
-          names.push(person.fields);
-        });
-        this.setState({
-          names
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    // CONTENTFUL API:
+    // axios
+    //   .get(
+    //     `https://cdn.contentful.com/spaces/${keys.space}/entries?access_token=${
+    //       keys.accessToken
+    //     }&limit=1000`
+    //   )
+    //   .then(response => {
+    //     console.log(response.data);
+    //     let names = [];
+    //     response.data.items.forEach(person => {
+    //       names.push(person.fields);
+    //     });
+    //     this.setState({
+    //       names
+    //     });
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
+
+    Tabletop.init({
+      key: "1l63qhoaWDXjEwDNKtdLN7J99judJfBJ7r6_O2D5xWV4",
+      callback: googleData => {
+        console.log(googleData);
+      },
+      simpleSheet: true
+    });
   }
 
   render() {
