@@ -37,8 +37,7 @@ class Search extends React.Component {
     }
 
     const regex = new RegExp("\\b" + escapedValue, "i");
-
-    return this.props.names.filter(person =>
+    return this.props.names.items.filter(person =>
       regex.test(this.getSuggestionValue(person))
     );
   }
@@ -46,17 +45,17 @@ class Search extends React.Component {
   getSuggestionValue(suggestion) {
     let fullName = "";
     let middleName = "";
-    if (suggestion.name.middle !== undefined) {
-      middleName = suggestion.name.middle;
+    if (suggestion.fields.name.middle !== undefined) {
+      middleName = suggestion.fields.name.middle;
     }
-    fullName += `${suggestion.name.first} ${middleName} ${
-      suggestion.name.last
+    fullName += `${suggestion.fields.name.first} ${middleName} ${
+      suggestion.fields.name.last
     }`;
 
     let degrees = [];
-    for (const key in suggestion.years) {
+    for (const key in suggestion.fields.years) {
       let degree;
-      degree = suggestion.years[key];
+      degree = suggestion.fields.years[key];
       degrees.push(` ${degree}`);
     }
 
@@ -71,17 +70,17 @@ class Search extends React.Component {
   renderSuggestion(suggestion) {
     let fullName = "";
     let middleName = "";
-    if (suggestion.name.middle !== undefined) {
-      middleName = suggestion.name.middle;
+    if (suggestion.fields.name.middle !== undefined) {
+      middleName = suggestion.fields.name.middle;
     }
-    fullName += `${suggestion.name.first} ${middleName} ${
-      suggestion.name.last
+    fullName += `${suggestion.fields.name.first} ${middleName} ${
+      suggestion.fields.name.last
     }`;
 
     let degrees = [];
-    for (const key in suggestion.years) {
+    for (const key in suggestion.fields.years) {
       let degree;
-      degree = suggestion.years[key];
+      degree = suggestion.fields.years[key];
       degrees.push(` ${degree}`);
     }
 
