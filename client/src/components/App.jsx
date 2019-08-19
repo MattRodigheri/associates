@@ -62,9 +62,6 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.names) {
-      console.log(this.state.names.length);
-    }
     return (
       <div>
         <Counter count={this.state.names ? this.state.names.items.length : 0} />

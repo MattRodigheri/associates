@@ -3,6 +3,7 @@ import { Tabs, Tab } from "react-bootstrap";
 import sort from "fast-sort";
 import NewMembers from "./NewMembers.jsx";
 import Letter from "./Letter.jsx";
+import "./tabs.css";
 
 class NameTabs extends React.Component {
   constructor(props) {
@@ -48,13 +49,13 @@ class NameTabs extends React.Component {
     let y = [];
     let z = [];
 
-    const sortedNames = sort(names).asc([
-      person => person.name.last,
-      person => person.name.first,
-      person => person.name.middle
+    const sortedNames = sort(names.items).asc([
+      person => person.fields.name.last,
+      person => person.fields.name.first,
+      person => person.fields.name.middle
     ]);
 
-    sortedNames.items.forEach(person => {
+    sortedNames.forEach(person => {
       if (person.fields.name.last[0] === "A") {
         a.push(person);
       }
@@ -197,12 +198,12 @@ class NameTabs extends React.Component {
         <NewMembers handleChange={this.handleChange} />
         <Tabs defaultActiveKey="a-b">
           <Tab eventKey="a-b" title="A-B">
-            <div>A</div>
+            <h5>A</h5>
             <Letter names={this.state.a} />
             <div>B</div>
             <Letter names={this.state.b} />
           </Tab>
-          <Tab eventKey="c-d" title="C-D">
+          <Tab className="tab" eventKey="c-d" title="C-D">
             <div>C</div>
             <Letter names={this.state.c} />
             <div>D</div>
