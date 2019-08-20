@@ -42,3 +42,9 @@ h5 {
   padding: 10px;
   margin: 0 auto 20px auto;
 }
+
+.topLink {
+  color: #8c1515;
+  float: right;
+  margin-right: 10%;
+}

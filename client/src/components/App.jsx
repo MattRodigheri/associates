@@ -64,6 +64,7 @@ class App extends React.Component {
     return (
       <main>
         <header>
+          <div name="top" />
           <Counter
             className="counter"
             count={this.state.names ? this.state.names.length : 0}
