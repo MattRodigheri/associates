@@ -1,4 +1,5 @@
 import React from "react";
+import "../../styles/searchResults.css";
 
 class SearchResults extends React.Component {
   constructor(props) {
@@ -44,8 +45,8 @@ class SearchResults extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.search}>Search</button>
-        {this.state.results}
+        <button onClick={this.search}>SEARCH</button>
+        <div className="resultsContainer">{this.state.results}</div>
       </div>
     );
   }

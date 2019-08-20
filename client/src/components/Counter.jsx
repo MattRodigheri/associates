@@ -1,7 +1,7 @@
 import React from "react";
 
 const Counter = props => {
-  return <div>{props.count} Associates</div>;
+  return <div className="counter">{props.count} Associates Total</div>;
 };
 
 export default Counter;

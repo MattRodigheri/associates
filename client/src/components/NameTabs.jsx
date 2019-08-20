@@ -3,7 +3,7 @@ import { Tabs, Tab } from "react-bootstrap";
 import sort from "fast-sort";
 import NewMembers from "./NewMembers.jsx";
 import Letter from "./Letter.jsx";
-import "./tabs.css";
+import "../../styles/nameTabs.css";
 
 class NameTabs extends React.Component {
   constructor(props) {
@@ -49,89 +49,89 @@ class NameTabs extends React.Component {
     let y = [];
     let z = [];
 
-    const sortedNames = sort(names.items).asc([
-      person => person.fields.name.last,
-      person => person.fields.name.first,
-      person => person.fields.name.middle
+    const sortedNames = sort(names).asc([
+      person => person.name.last,
+      person => person.name.first,
+      person => person.name.middle
     ]);
 
     sortedNames.forEach(person => {
-      if (person.fields.name.last[0] === "A") {
+      if (person.name.last[0] === "A") {
         a.push(person);
       }
-      if (person.fields.name.last[0] === "B") {
+      if (person.name.last[0] === "B") {
         b.push(person);
       }
-      if (person.fields.name.last[0] === "C") {
+      if (person.name.last[0] === "C") {
         c.push(person);
       }
-      if (person.fields.name.last[0] === "D") {
+      if (person.name.last[0] === "D") {
         d.push(person);
       }
-      if (person.fields.name.last[0] === "E") {
+      if (person.name.last[0] === "E") {
         e.push(person);
       }
-      if (person.fields.name.last[0] === "F") {
+      if (person.name.last[0] === "F") {
         f.push(person);
       }
-      if (person.fields.name.last[0] === "G") {
+      if (person.name.last[0] === "G") {
         g.push(person);
       }
-      if (person.fields.name.last[0] === "H") {
+      if (person.name.last[0] === "H") {
         h.push(person);
       }
-      if (person.fields.name.last[0] === "I") {
+      if (person.name.last[0] === "I") {
         i.push(person);
       }
-      if (person.fields.name.last[0] === "J") {
+      if (person.name.last[0] === "J") {
         j.push(person);
       }
-      if (person.fields.name.last[0] === "K") {
+      if (person.name.last[0] === "K") {
         k.push(person);
       }
-      if (person.fields.name.last[0] === "L") {
+      if (person.name.last[0] === "L") {
         l.push(person);
       }
-      if (person.fields.name.last[0] === "M") {
+      if (person.name.last[0] === "M") {
         m.push(person);
       }
-      if (person.fields.name.last[0] === "N") {
+      if (person.name.last[0] === "N") {
         n.push(person);
       }
-      if (person.fields.name.last[0] === "O") {
+      if (person.name.last[0] === "O") {
         o.push(person);
       }
-      if (person.fields.name.last[0] === "P") {
+      if (person.name.last[0] === "P") {
         p.push(person);
       }
-      if (person.fields.name.last[0] === "Q") {
+      if (person.name.last[0] === "Q") {
         q.push(person);
       }
-      if (person.fields.name.last[0] === "R") {
+      if (person.name.last[0] === "R") {
         r.push(person);
       }
-      if (person.fields.name.last[0] === "S") {
+      if (person.name.last[0] === "S") {
         s.push(person);
       }
-      if (person.fields.name.last[0] === "T") {
+      if (person.name.last[0] === "T") {
         t.push(person);
       }
-      if (person.fields.name.last[0] === "U") {
+      if (person.name.last[0] === "U") {
         u.push(person);
       }
-      if (person.fields.name.last[0] === "V") {
+      if (person.name.last[0] === "V") {
         v.push(person);
       }
-      if (person.fields.name.last[0] === "W") {
+      if (person.name.last[0] === "W") {
         w.push(person);
       }
-      if (person.fields.name.last[0] === "X") {
+      if (person.name.last[0] === "X") {
         x.push(person);
       }
-      if (person.fields.name.last[0] === "Y") {
+      if (person.name.last[0] === "Y") {
         y.push(person);
       }
-      if (person.fields.name.last[0] === "Z") {
+      if (person.name.last[0] === "Z") {
         z.push(person);
       }
     });
@@ -200,77 +200,77 @@ class NameTabs extends React.Component {
           <Tab eventKey="a-b" title="A-B">
             <h5>A</h5>
             <Letter names={this.state.a} />
-            <div>B</div>
+            <h5>B</h5>
             <Letter names={this.state.b} />
           </Tab>
           <Tab className="tab" eventKey="c-d" title="C-D">
-            <div>C</div>
+            <h5>C</h5>
             <Letter names={this.state.c} />
-            <div>D</div>
+            <h5>D</h5>
             <Letter names={this.state.d} />
           </Tab>
           <Tab eventKey="e-f" title="E-F">
-            <div>E</div>
+            <h5>E</h5>
             <Letter names={this.state.e} />
-            <div>F</div>
+            <h5>F</h5>
             <Letter names={this.state.f} />
           </Tab>
           <Tab eventKey="g-h" title="G-H">
-            <div>G</div>
+            <h5>G</h5>
             <Letter names={this.state.g} />
-            <div>H</div>
+            <h5>H</h5>
             <Letter names={this.state.h} />
           </Tab>
           <Tab eventKey="i-j" title="I-J">
-            <div>I</div>
+            <h5>I</h5>
             <Letter names={this.state.i} />
-            <div>J</div>
+            <h5>J</h5>
             <Letter names={this.state.j} />
           </Tab>
           <Tab eventKey="k-l" title="K-L">
-            <div>K</div>
+            <h5>K</h5>
             <Letter names={this.state.k} />
-            <div>L</div>
+            <h5>L</h5>
             <Letter names={this.state.l} />
           </Tab>
           <Tab eventKey="m-n" title="M-N">
-            <div>M</div>
+            <h5>M</h5>
             <Letter names={this.state.m} />
-            <div>N</div>
+            <h5>N</h5>
             <Letter names={this.state.n} />
           </Tab>
           <Tab eventKey="o-p" title="O-P">
-            <div>O</div>
+            <h5>O</h5>
             <Letter names={this.state.o} />
-            <div>P</div>
+            <h5>P</h5>
             <Letter names={this.state.p} />
           </Tab>
           <Tab eventKey="q-r" title="Q-R">
-            <div>Q</div>
+            <h5>Q</h5>
             <Letter names={this.state.q} />
-            <div>R</div>
+            <h5>R</h5>
             <Letter names={this.state.r} />
           </Tab>
           <Tab eventKey="s-t" title="S-T">
-            <div>S</div>
+            <h5>S</h5>
             <Letter names={this.state.s} />
-            <div>T</div>
+            <h5>T</h5>
             <Letter names={this.state.t} />
           </Tab>
           <Tab eventKey="u-v" title="U-V">
-            <div>U</div>
+            <h5>U</h5>
             <Letter names={this.state.u} />
-            <div>V</div>
+            <h5>V</h5>
             <Letter names={this.state.v} />
           </Tab>
           <Tab eventKey="w-z" title="W-Z">
-            <div>W</div>
+            <h5>W</h5>
             <Letter names={this.state.w} />
-            <div>X</div>
+            <h5>X</h5>
             <Letter names={this.state.x} />
-            <div>Y</div>
+            <h5>Y</h5>
             <Letter names={this.state.y} />
-            <div>Z</div>
+            <h5>Z</h5>
             <Letter names={this.state.z} />
           </Tab>
         </Tabs>

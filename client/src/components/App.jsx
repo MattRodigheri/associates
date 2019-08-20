@@ -1,10 +1,12 @@
 import React from "react";
-// import * as contentful from "contentful";
+import * as contentful from "contentful";
 import axios from "axios";
 import keys from "../../../keys.js";
 import Counter from "./Counter.jsx";
 import Search from "./Search.jsx";
 import NameTabs from "./NameTabs.jsx";
+import "../../styles/app.css";
+import { totalmem } from "os";
 
 class App extends React.Component {
   constructor() {
@@ -12,10 +14,10 @@ class App extends React.Component {
 
     this.state = {};
 
-    // this.client = contentful.createClient({
-    //   space: keys.space,
-    //   accessToken: keys.accessToken
-    // });
+    this.client = contentful.createClient({
+      space: keys.space,
+      accessToken: keys.accessToken
+    });
 
     // this.fetchAssociate = this.fetchAssociates.bind(this);
     // this.setAssociates = this.setAssociates.bind(this);
@@ -26,13 +28,17 @@ class App extends React.Component {
   // }
 
   // fetchAssociates() {
-  //   return this.client.getEntries();
+  //   // for (const i = 0; i < t)
+  //   return this.client.getEntries({
+  //     limit: 1000
+  //   });
   // }
 
   // setAssociates(response) {
   //   let names = [];
+  //   console.log(response.items);
   //   response.items.forEach(person => {
-  //     names.push(person.fields);
+  //     names.push(person);
   //   });
   //   this.setState({
   //     names
@@ -40,6 +46,7 @@ class App extends React.Component {
   // }
 
   componentDidMount() {
+    let names = [];
     axios
       .get(
         `https://cdn.contentful.com/spaces/${keys.space}/entries?access_token=${
@@ -47,15 +54,49 @@ class App extends React.Component {
         }&limit=1000`
       )
       .then(response => {
-        console.log(response.data);
-        let names = [];
         response.data.items.forEach(person => {
           names.push(person.fields);
         });
-        this.setState({
-          names: response.data
-        });
+        // this.setState({
+        //   names: response.data
+        // });
       })
+      .then(
+        axios
+          .get(
+            `https://cdn.contentful.com/spaces/${
+              keys.space
+            }/entries?access_token=${keys.accessToken}&limit=1000&skip=1000`
+          )
+          .then(response => {
+            // let names = [];
+            response.data.items.forEach(person => {
+              names.push(person.fields);
+            });
+            // this.setState({
+            //   names
+            // });
+            // console.log(this.state.names);
+          })
+      )
+      .then(
+        axios
+          .get(
+            `https://cdn.contentful.com/spaces/${
+              keys.space
+            }/entries?access_token=${keys.accessToken}&limit=1000&skip=2000`
+          )
+          .then(response => {
+            // let names = [];
+            response.data.items.forEach(person => {
+              names.push(person.fields);
+            });
+            this.setState({
+              names
+            });
+            console.log(this.state.names);
+          })
+      )
       .catch(error => {
         console.log(error);
       });
@@ -63,13 +104,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Counter count={this.state.names ? this.state.names.items.length : 0} />
-        <Search names={this.state.names} />
+      <main>
+        <header>
+          <Counter
+            className="counter"
+            count={this.state.names ? this.state.names.length : 0}
+          />
+          <Search className="search" names={this.state.names} />
+        </header>
         {this.state && this.state.names && (
           <NameTabs names={this.state.names} />
         )}
-      </div>
+      </main>
     );
   }
 }

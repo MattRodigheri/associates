@@ -1,6 +1,7 @@
 import React from "react";
 import Autosuggest from "react-autosuggest";
 import SearchResults from "./SearchResults.jsx";
+import "../../styles/search.css";
 
 class Search extends React.Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class Search extends React.Component {
     }
 
     const regex = new RegExp("\\b" + escapedValue, "i");
-    return this.props.names.items.filter(person =>
+    return this.props.names.filter(person =>
       regex.test(this.getSuggestionValue(person))
     );
   }
@@ -45,17 +46,17 @@ class Search extends React.Component {
   getSuggestionValue(suggestion) {
     let fullName = "";
     let middleName = "";
-    if (suggestion.fields.name.middle !== undefined) {
-      middleName = suggestion.fields.name.middle;
+    if (suggestion.name.middle !== undefined) {
+      middleName = suggestion.name.middle;
     }
-    fullName += `${suggestion.fields.name.first} ${middleName} ${
-      suggestion.fields.name.last
+    fullName += `${suggestion.name.first} ${middleName} ${
+      suggestion.name.last
     }`;
 
     let degrees = [];
-    for (const key in suggestion.fields.years) {
+    for (const key in suggestion.years) {
       let degree;
-      degree = suggestion.fields.years[key];
+      degree = suggestion.years[key];
       degrees.push(` ${degree}`);
     }
 
@@ -70,17 +71,17 @@ class Search extends React.Component {
   renderSuggestion(suggestion) {
     let fullName = "";
     let middleName = "";
-    if (suggestion.fields.name.middle !== undefined) {
-      middleName = suggestion.fields.name.middle;
+    if (suggestion.name.middle !== undefined) {
+      middleName = suggestion.name.middle;
     }
-    fullName += `${suggestion.fields.name.first} ${middleName} ${
-      suggestion.fields.name.last
+    fullName += `${suggestion.name.first} ${middleName} ${
+      suggestion.name.last
     }`;
 
     let degrees = [];
-    for (const key in suggestion.fields.years) {
+    for (const key in suggestion.years) {
       let degree;
-      degree = suggestion.fields.years[key];
+      degree = suggestion.years[key];
       degrees.push(` ${degree}`);
     }
 
@@ -117,6 +118,11 @@ class Search extends React.Component {
 
     return (
       <div>
+        <SearchResults
+          className="searchResults"
+          results={this.state.searchResults}
+          value={this.state.value}
+        />
         <Autosuggest
           suggestions={suggestions}
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
@@ -124,10 +130,6 @@ class Search extends React.Component {
           getSuggestionValue={this.getSuggestionValue}
           renderSuggestion={this.renderSuggestion}
           inputProps={inputProps}
-        />
-        <SearchResults
-          results={this.state.searchResults}
-          value={this.state.value}
         />
       </div>
     );
