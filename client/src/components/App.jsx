@@ -19,7 +19,7 @@ class App extends React.Component {
       .get(
         `https://cdn.contentful.com/spaces/${keys.space}/entries?access_token=${
           keys.accessToken
-        }&limit=1000`
+        }&limit=1000&order=sys.id`
       )
       .then(response => {
         response.data.items.forEach(person => {
@@ -41,7 +41,7 @@ class App extends React.Component {
                 keys.space
               }/entries?access_token=${
                 keys.accessToken
-              }&limit=1000&skip=${skip}`
+              }&limit=1000&skip=${skip}&order=sys.id`
             )
             .then(response => {
               let newNames = [];
@@ -52,19 +52,6 @@ class App extends React.Component {
               this.setState({
                 names: totalNames
               });
-              ///////////////////////////////////////////////////
-              // if (this.state.names) {
-              //   this.state.names.forEach((person, i) => {
-              //     if (
-              //       person.name.last === "Abbott"
-              //       //  &&
-              //       // person.name.first === "Kristin"
-              //     ) {
-              //       console.log(i, person.name.first);
-              //     }
-              //   });
-              // }
-              ///////////////////////////////////////////////////
             });
         }
       })
