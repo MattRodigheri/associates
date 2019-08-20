@@ -10,7 +10,7 @@ const NewMembers = props => {
         value="true"
         onChange={props.handleChange}
       />
-      View Only New Members
+      <p>View Only New Members</p>
     </div>
   );
 };
