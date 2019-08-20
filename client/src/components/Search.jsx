@@ -45,13 +45,13 @@ class Search extends React.Component {
 
   getSuggestionValue(suggestion) {
     let fullName = "";
-    let middleName = "";
     if (suggestion.name.middle !== undefined) {
-      middleName = suggestion.name.middle;
+      fullName += `${suggestion.name.first} ${suggestion.name.middle} ${
+        suggestion.name.last
+      }`;
+    } else {
+      fullName += `${suggestion.name.first} ${suggestion.name.last}`;
     }
-    fullName += `${suggestion.name.first} ${middleName} ${
-      suggestion.name.last
-    }`;
 
     let degrees = [];
     for (const key in suggestion.years) {
@@ -70,13 +70,13 @@ class Search extends React.Component {
 
   renderSuggestion(suggestion) {
     let fullName = "";
-    let middleName = "";
     if (suggestion.name.middle !== undefined) {
-      middleName = suggestion.name.middle;
+      fullName += `${suggestion.name.first} ${suggestion.name.middle} ${
+        suggestion.name.last
+      }`;
+    } else {
+      fullName += `${suggestion.name.first} ${suggestion.name.last}`;
     }
-    fullName += `${suggestion.name.first} ${middleName} ${
-      suggestion.name.last
-    }`;
 
     let degrees = [];
     for (const key in suggestion.years) {

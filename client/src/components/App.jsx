@@ -52,6 +52,19 @@ class App extends React.Component {
               this.setState({
                 names: totalNames
               });
+              ///////////////////////////////////////////////////
+              // if (this.state.names) {
+              //   this.state.names.forEach((person, i) => {
+              //     if (
+              //       person.name.last === "Abbott"
+              //       //  &&
+              //       // person.name.first === "Kristin"
+              //     ) {
+              //       console.log(i, person.name.first);
+              //     }
+              //   });
+              // }
+              ///////////////////////////////////////////////////
             });
         }
       })
