@@ -57,46 +57,71 @@ class App extends React.Component {
         response.data.items.forEach(person => {
           names.push(person.fields);
         });
-        // this.setState({
-        //   names: response.data
-        // });
+
+        this.setState({
+          names
+        });
+
+        const loops = Math.ceil(response.data.total / 1000);
+        let skip = 0;
+        for (let i = 0; i < loops; i++) {
+          skip += 1000;
+          axios
+            .get(
+              `https://cdn.contentful.com/spaces/${
+                keys.space
+              }/entries?access_token=${
+                keys.accessToken
+              }&limit=1000&skip=${skip}`
+            )
+            .then(response => {
+              const totalNames = this.state.names.concat(response.data.items);
+              response.data.items.forEach(person => {
+                names.push(person.fields);
+              });
+              this.setState({
+                names: totalNames
+              });
+            });
+        }
       })
-      .then(
-        axios
-          .get(
-            `https://cdn.contentful.com/spaces/${
-              keys.space
-            }/entries?access_token=${keys.accessToken}&limit=1000&skip=1000`
-          )
-          .then(response => {
-            // let names = [];
-            response.data.items.forEach(person => {
-              names.push(person.fields);
-            });
-            // this.setState({
-            //   names
-            // });
-            // console.log(this.state.names);
-          })
-      )
-      .then(
-        axios
-          .get(
-            `https://cdn.contentful.com/spaces/${
-              keys.space
-            }/entries?access_token=${keys.accessToken}&limit=1000&skip=2000`
-          )
-          .then(response => {
-            // let names = [];
-            response.data.items.forEach(person => {
-              names.push(person.fields);
-            });
-            this.setState({
-              names
-            });
-            console.log(this.state.names);
-          })
-      )
+
+      // .then(
+      //   axios
+      //     .get(
+      //       `https://cdn.contentful.com/spaces/${
+      //         keys.space
+      //       }/entries?access_token=${keys.accessToken}&limit=1000&skip=1000`
+      //     )
+      //     .then(response => {
+      //       // let names = [];
+      //       response.data.items.forEach(person => {
+      //         names.push(person.fields);
+      //       });
+      //       // this.setState({
+      //       //   names
+      //       // });
+      //       // console.log(this.state.names);
+      //     })
+      // )
+      // .then(
+      //   axios
+      //     .get(
+      //       `https://cdn.contentful.com/spaces/${
+      //         keys.space
+      //       }/entries?access_token=${keys.accessToken}&limit=1000&skip=2000`
+      //     )
+      //     .then(response => {
+      //       // let names = [];
+      //       response.data.items.forEach(person => {
+      //         names.push(person.fields);
+      //       });
+      //       this.setState({
+      //         names
+      //       });
+      //       console.log(this.state.names);
+      //     })
+      // )
       .catch(error => {
         console.log(error);
       });
