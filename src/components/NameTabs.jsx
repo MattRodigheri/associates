@@ -10,21 +10,7 @@ class NameTabs extends React.Component {
     super(props);
 
     this.state = {
-      checked: true,
-      test: [
-        {
-          name: {
-            first: "Matt"
-          },
-          yearAdded: 2010
-        },
-        {
-          name: {
-            first: "Bob"
-          },
-          yearAdded: 1999
-        }
-      ]
+      checked: true
     };
 
     this.sortNames = this.sortNames.bind(this);
@@ -33,7 +19,39 @@ class NameTabs extends React.Component {
 
   UNSAFE_componentWillMount() {
     this.sortNames(this.props.names);
+
+    let mostRecent = Math.max.apply(
+      Math,
+      this.props.names.map(name => {
+        if (name.yearAdded) {
+          return name.yearAdded;
+        } else {
+          return 0;
+        }
+      })
+    );
+
+    this.setState({
+      recentlyAdded: mostRecent
+    });
   }
+
+  // componentDidMount() {
+  //   let mostRecent = Math.max.apply(
+  //     Math,
+  //     this.props.names.map(name => {
+  //       if (name.yearAdded) {
+  //         return name.yearAdded;
+  //       } else {
+  //         return 0;
+  //       }
+  //     })
+  //   );
+
+  //   this.setState({
+  //     recentlyAdded: mostRecent
+  //   });
+  // }
 
   sortNames(names) {
     let a = [];
@@ -187,20 +205,20 @@ class NameTabs extends React.Component {
 
     if (this.state.checked) {
       let recentlyAdded = [];
-      let mostRecent = Math.max.apply(
-        Math,
-        this.props.names.map(name => {
-          console.log(name.yearAdded);
-          if (name.yearAdded) {
-            return name.yearAdded;
-          } else {
-            return 0;
-          }
-        })
-      );
+      // let mostRecent = Math.max.apply(
+      //   Math,
+      //   this.props.names.map(name => {
+      //     if (name.yearAdded) {
+      //       return name.yearAdded;
+      //     } else {
+      //       return 0;
+      //     }
+      //   })
+      // );
 
       this.props.names.forEach(person => {
-        if (person.yearAdded === mostRecent) {
+        // if (person.yearAdded === mostRecent) {
+        if (person.yearAdded === this.state.recentlyAdded) {
           recentlyAdded.push(person);
         }
       });
@@ -218,7 +236,10 @@ class NameTabs extends React.Component {
         <Tabs defaultActiveKey="a-b">
           <Tab eventKey="a-b" title="A-B">
             <h5>A</h5>
-            <Letter names={this.state.a} />
+            <Letter
+              names={this.state.a}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>

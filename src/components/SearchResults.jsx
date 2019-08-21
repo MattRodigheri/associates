@@ -11,10 +11,22 @@ class SearchResults extends React.Component {
   }
 
   search() {
-    let resultingNames;
+    let resultingNames = [];
     if (this.props.results) {
       resultingNames = this.props.results.map((person, index) => {
         let fullName = "";
+        if (typeof person === "object") {
+          if (person.name.middle !== undefined) {
+            fullName += `${person.name.first} ${person.name.middle} ${
+              person.name.last
+            }`;
+          } else {
+            fullName += `${person.name.first} ${person.name.last}`;
+          }
+        } else {
+          fullName += person;
+        }
+
         let degrees = [];
         for (const key in person.years) {
           let degree;

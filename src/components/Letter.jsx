@@ -23,12 +23,24 @@ const Letter = props => {
             degrees.push(`'${degree.substring(5)}`);
           }
         }
-        return (
-          <div key={index}>
-            <div className="name">{`${fullName}`}</div>
-            <div className="degrees">{`${degrees.join(", ")}`}</div>
-          </div>
-        );
+
+        if (person.yearAdded === props.recentlyAdded) {
+          return (
+            <div key={index}>
+              <b>
+                <div className="name">{`${fullName}`}</div>
+                <div className="degrees">{`${degrees.join(", ")}`}</div>
+              </b>
+            </div>
+          );
+        } else {
+          return (
+            <div key={index}>
+              <div className="name">{`${fullName}`}</div>
+              <div className="degrees">{`${degrees.join(", ")}`}</div>
+            </div>
+          );
+        }
       })}
     </div>
   );
