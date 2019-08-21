@@ -32,7 +32,6 @@ class SearchResults extends React.Component {
         return <div key={index}>{`${fullName} ${degrees.join(", ")}`}</div>;
       });
       if (this.props.value.includes(" ")) {
-        console.log(this.props.value);
         this.setState({
           results: this.props.value
         });
