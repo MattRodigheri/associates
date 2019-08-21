@@ -57,7 +57,14 @@ class Search extends React.Component {
     for (const key in suggestion.years) {
       let degree;
       degree = suggestion.years[key];
-      degrees.push(` ${degree}`);
+      // degrees.push(` ${degree}`);
+      if (degree.slice(0, 2) !== "AB" && degree.slice(0, 2) !== "BS") {
+        degrees.push(
+          ` ${degree.slice(0, -4)} '${degree.substr(degree.length - 2)}`
+        );
+      } else {
+        degrees.push(` '${degree.substring(5)}`);
+      }
     }
 
     let resultingNames = [];
@@ -82,7 +89,14 @@ class Search extends React.Component {
     for (const key in suggestion.years) {
       let degree;
       degree = suggestion.years[key];
-      degrees.push(` ${degree}`);
+      // degrees.push(` ${degree}`);
+      if (degree.slice(0, 2) !== "AB" && degree.slice(0, 2) !== "BS") {
+        degrees.push(
+          ` ${degree.slice(0, -4)} '${degree.substr(degree.length - 2)}`
+        );
+      } else {
+        degrees.push(` '${degree.substring(5)}`);
+      }
     }
 
     return <div>{`${fullName} ${degrees} `}</div>;
