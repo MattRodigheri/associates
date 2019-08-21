@@ -36,23 +36,6 @@ class NameTabs extends React.Component {
     });
   }
 
-  // componentDidMount() {
-  //   let mostRecent = Math.max.apply(
-  //     Math,
-  //     this.props.names.map(name => {
-  //       if (name.yearAdded) {
-  //         return name.yearAdded;
-  //       } else {
-  //         return 0;
-  //       }
-  //     })
-  //   );
-
-  //   this.setState({
-  //     recentlyAdded: mostRecent
-  //   });
-  // }
-
   sortNames(names) {
     let a = [];
     let b = [];
@@ -205,19 +188,8 @@ class NameTabs extends React.Component {
 
     if (this.state.checked) {
       let recentlyAdded = [];
-      // let mostRecent = Math.max.apply(
-      //   Math,
-      //   this.props.names.map(name => {
-      //     if (name.yearAdded) {
-      //       return name.yearAdded;
-      //     } else {
-      //       return 0;
-      //     }
-      //   })
-      // );
 
       this.props.names.forEach(person => {
-        // if (person.yearAdded === mostRecent) {
         if (person.yearAdded === this.state.recentlyAdded) {
           recentlyAdded.push(person);
         }
@@ -244,149 +216,224 @@ class NameTabs extends React.Component {
               back to top
             </a>
             <h5>B</h5>
-            <Letter names={this.state.b} />
+            <Letter
+              names={this.state.b}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
           </Tab>
           <Tab className="tab" eventKey="c-d" title="C-D">
             <h5>C</h5>
-            <Letter names={this.state.c} />
+            <Letter
+              names={this.state.c}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
             <h5>D</h5>
-            <Letter names={this.state.d} />
+            <Letter
+              names={this.state.d}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
           </Tab>
           <Tab eventKey="e-f" title="E-F">
             <h5>E</h5>
-            <Letter names={this.state.e} />
+            <Letter
+              names={this.state.e}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
             <h5>F</h5>
-            <Letter names={this.state.f} />
+            <Letter
+              names={this.state.f}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
           </Tab>
           <Tab eventKey="g-h" title="G-H">
             <h5>G</h5>
-            <Letter names={this.state.g} />
+            <Letter
+              names={this.state.g}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
             <h5>H</h5>
-            <Letter names={this.state.h} />
+            <Letter
+              names={this.state.h}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
           </Tab>
           <Tab eventKey="i-j" title="I-J">
             <h5>I</h5>
-            <Letter names={this.state.i} />
+            <Letter
+              names={this.state.i}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
             <h5>J</h5>
-            <Letter names={this.state.j} />
+            <Letter
+              names={this.state.j}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
           </Tab>
           <Tab eventKey="k-l" title="K-L">
             <h5>K</h5>
-            <Letter names={this.state.k} />
+            <Letter
+              names={this.state.k}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
             <h5>L</h5>
-            <Letter names={this.state.l} />
+            <Letter
+              names={this.state.l}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
           </Tab>
           <Tab eventKey="m-n" title="M-N">
             <h5>M</h5>
-            <Letter names={this.state.m} />
+            <Letter
+              names={this.state.m}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
             <h5>N</h5>
-            <Letter names={this.state.n} />
+            <Letter
+              names={this.state.n}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
           </Tab>
           <Tab eventKey="o-p" title="O-P">
             <h5>O</h5>
-            <Letter names={this.state.o} />
+            <Letter
+              names={this.state.o}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
             <h5>P</h5>
-            <Letter names={this.state.p} />
+            <Letter
+              names={this.state.p}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
           </Tab>
           <Tab eventKey="q-r" title="Q-R">
             <h5>Q</h5>
-            <Letter names={this.state.q} />
+            <Letter
+              names={this.state.q}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
             <h5>R</h5>
-            <Letter names={this.state.r} />
+            <Letter
+              names={this.state.r}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
           </Tab>
           <Tab eventKey="s-t" title="S-T">
             <h5>S</h5>
-            <Letter names={this.state.s} />
+            <Letter
+              names={this.state.s}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
             <h5>T</h5>
-            <Letter names={this.state.t} />
+            <Letter
+              names={this.state.t}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
           </Tab>
           <Tab eventKey="u-v" title="U-V">
             <h5>U</h5>
-            <Letter names={this.state.u} />
+            <Letter
+              names={this.state.u}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
             <h5>V</h5>
-            <Letter names={this.state.v} />
+            <Letter
+              names={this.state.v}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
           </Tab>
           <Tab eventKey="w-z" title="W-Z">
             <h5>W</h5>
-            <Letter names={this.state.w} />
+            <Letter
+              names={this.state.w}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
             <h5>X</h5>
-            <Letter names={this.state.x} />
+            <Letter
+              names={this.state.x}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
             <h5>Y</h5>
-            <Letter names={this.state.y} />
+            <Letter
+              names={this.state.y}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
             <h5>Z</h5>
-            <Letter names={this.state.z} />
+            <Letter
+              names={this.state.z}
+              recentlyAdded={this.state.recentlyAdded}
+            />
             <a className="topLink" href="#top">
               back to top
             </a>
